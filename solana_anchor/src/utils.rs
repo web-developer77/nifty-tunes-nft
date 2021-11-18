@@ -1,5 +1,5 @@
 use {
-    crate::MarketError,
+    crate::PoolError,
     anchor_lang::{
         prelude::{AccountInfo, ProgramResult,},
         solana_program::{
@@ -48,7 +48,7 @@ pub fn spl_token_transfer(params: TokenTransferParams<'_, '_>) -> ProgramResult 
         &[authority_signer_seeds],
     );
 
-    result.map_err(|_| MarketError::TokenTransferFailed.into())
+    result.map_err(|_| PoolError::TokenTransferFailed.into())
 }
 
 ///TokenTransferParams
@@ -87,7 +87,7 @@ pub fn spl_token_transfer_without_seed(params: TokenTransferParamsWithoutSeed<'_
         &[source, destination ,authority, token_program],
     );
 
-    result.map_err(|_| MarketError::TokenTransferFailed.into())
+    result.map_err(|_| PoolError::TokenTransferFailed.into())
 }
 
 pub struct TokenSetAuthorityParams<'a>{
@@ -117,7 +117,7 @@ pub fn spl_token_set_authority(params : TokenSetAuthorityParams<'_>) -> ProgramR
         )?,
         &[authority,new_authority,account,token_program],
     );
-    result.map_err(|_| MarketError::TokenSetAuthorityFailed.into())
+    result.map_err(|_| PoolError::TokenSetAuthorityFailed.into())
 }
 
 pub struct TokenMintToParams<'a> {
@@ -148,5 +148,5 @@ pub fn spl_token_mint_to(params : TokenMintToParams<'_>) -> ProgramResult {
         )?,
         &[mint,account,owner,token_program],
     );
-    result.map_err(|_| MarketError::TokenMintToFailed.into())
+    result.map_err(|_| PoolError::TokenMintToFailed.into())
 }

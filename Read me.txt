@@ -1,0 +1,21 @@
+Nifty Tunes Contract.
+
+You first build market place with init_pool endpoint. You indicate owner of market place and mint of asset used for sale in this market(for example, if you want to use usdc, you set this mint with "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v").
+
+mint_nft : You can mint nft with royalty and collaborators.
+
+1. For Instant Price Sale.
+You can use sell_nft, buy_nft, redeem_nft and withdraw_fund for instant price sale.
+
+-You call sell_nft with price of nft to sell your own nft.
+-You call redeem_nft to redeem unsold nft.
+-You call buy_nft to buy nft. If correct, you can get the nft.
+-You call withdraw_fund to get a money that buyer placed. All collaborators call this endpoint to get a money.
+
+2. For Auction.
+You can use sell_nft_by_auction, place_bid, claim_bid, redeem_nft, withdraw_fund for auction.
+
+-You call sell_nft_by_auction to create auction.
+-You call place_bid to win the auction.(Your price is 10% higher than prev bidder's)
+-If auction is ended, you(last winner) call claim_bid to get a NFT.
+redeem_nft and withdraw_fund is the same as the functions in instant price sale.

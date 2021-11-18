@@ -643,6 +643,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "metaplex-auction"
+version = "0.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ff6cc6c4c9457800e884b152ca69cacee54132651265ccfa31e2bc7c3cc59ca7"
+dependencies = [
+ "arrayref",
+ "borsh",
+ "num-derive",
+ "num-traits",
+ "solana-program",
+ "spl-token",
+ "thiserror",
+]
+
+[[package]]
 name = "metaplex-token-metadata"
 version = "0.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1032,6 +1047,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "borsh",
+ "metaplex-auction",
  "metaplex-token-metadata",
  "spl-token",
 ]
